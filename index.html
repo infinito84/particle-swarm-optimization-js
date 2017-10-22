@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>PSO</title>
+		<link rel="stylesheet" href="assets/styles.css">
+		<script type="text/javascript" src="assets/pso.js"></script>
+	</head>
+	<body>
+		<h1>Particle Swarm Optimization</h1>
+		<table>
+			<tr>
+				<td>
+					<h2>Problema</h2>
+					<p>Para una barra como la mostrada en la siguiente figura, sometida a una fuerza P = <input id="p" value="130000"/>N, L1= <input id="l1" value="0.16"/>m y L2= <input id="l2" value="0.22"/>m, encontrar los valores óptimos de D, d y r de manera que el volumen de la barra sea el mínimo y se cumplan las restricciones de resistencia (no sobrepasar el esfuerzo máximo que puede resistir el material).</p>
+					<img src="assets/bar.png" width="250px"/>
+					<h2>Restricciones</h2>
+					<ul>
+						<li>El material del cual está hecha la barra, resiste un valor máximo de esfuerzo igual a <input id="maxSigma" value="90000000"/>Pa.</li>
+						<li>
+							<input id="minD" value="0.01"/>m
+							<= D <=
+							<input id="maxD" value="0.1"/>m
+						</li>
+						<li>
+							<input id="mind" value="0.01"/>m
+							<= d <=
+							<input id="maxd" value="0.07"/>m
+						</li>
+						<li>
+							<input id="minr" value="0.001"/>m
+							<= r <=
+							<input id="maxr" value="0.015"/>m
+						</li>
+						<li>D > d</li>
+						<li>r <= (D - d) / 2</li>
+					</ul>
+				</td>
+				<td>
+					<h2>Solución</h2>
+					<table>
+						<tr>
+							<td>
+								Partículas = <input id="N_swarm" value="100"/>
+							</td>
+							<td>
+								W = <input id="w_swarm" value="0.9"/>
+							</td>
+							<td>
+								C1 = <input id="c1_swarm" value="0.5"/>
+							</td>
+							<td>
+								C2 = <input id="c2_swarm" value="0.7"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								D<sup>*</sup> = <input id="Doptimo" value="0000000"/>
+							</td>
+							<td>
+								d<sup>*</sup> = <input id="doptimo" value="0000000"/>
+							</td>
+							<td>
+								r<sup>*</sup> = <input id="roptimo" value="0000000"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								V<sup>*</sup> = <input id="voptimo" value="0000000"/>
+							</td>
+							<td>
+								O<sup>*</sup> = <input id="sigmaoptimo" value="0000000"/>
+							</td>
+							<td>
+								<button onclick="start()">Iniciar</button>
+							</td>
+						</tr>
+					</table>
+					<canvas id="canvas" width="800px" height="400px"></canvas>
+				</td>
+			</tr>
+		</table>
+		<script>
+		document.querySelectorAll('input').forEach(function(input){
+			input.style.width = input.value.length +'ch'
+		})
+		</script>
+	</body>
+</html>
